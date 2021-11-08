@@ -3,13 +3,12 @@
 
 const CACHE_NAME = 'lab-7-starter';
 var urlsToCache = [
-  '/#ghostCookies',
-  '/#birthdayCake',
-  '/#chocolateChip',
-  '/#stuffing',
-  '/#turkey',
-  '/#pumpkinPie',
-  'index.html'
+  'https://introweb.tech/assets/json/ghostCookies.json',
+  'https://introweb.tech/assets/json/birthdayCake.json',
+  'https://introweb.tech/assets/json/chocolateChip.json',
+  'https://introweb.tech/assets/json/stuffing.json',
+  'https://introweb.tech/assets/json/turkey.json',
+  'https://introweb.tech/assets/json/pumpkinPie.json'
 ];
 
 // Once the service worker has been installed, feed it some initial URLs to cache
@@ -38,12 +37,7 @@ self.addEventListener('activate', function (event) {
    * TODO - Part 2 Step 3
    * Create a function as outlined above, it should be one line
    */
-  //  event.waitUntil(
-  //     caches.keys().then(function(cacheNames) {
-  //       return Promise.all();
-  //     }
-  //   )
-  // );
+   event.waitUntil(clients.claim());
 });
 
 // Intercept fetch requests and store them in the cache
@@ -83,5 +77,7 @@ self.addEventListener('fetch', function (event) {
         );
       })
     );
-    
 });
+
+
+
