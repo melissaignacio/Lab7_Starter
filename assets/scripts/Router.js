@@ -86,8 +86,8 @@ export class Router {
       url = window.location.pathname + hash;
       state = { 'page': page, 'hash': hash };
       
-      if ((statePopped == false ) || window.location.hash != hash){
-        history.pushState(state,hash,url);
+      if ((!statePopped ) && window.location.hash != hash){
+        history.pushState(state,'',url);
        
       } 
       // window.location.href = url;
